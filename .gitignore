@@ -32,6 +32,8 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.env.ingestion.local
+.env.ingestion.*
 
 # vercel
 .vercel
@@ -39,3 +41,26 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Isolated MinerU Engine
+.mineru/
+.mineru_models/
+
+# Python cache & bytecode
+**/__pycache__/
+*.pyc
+
+# Ingestion backups, PDFs, reports & generated MinerU experiment outputs
+scripts/ingestion/backups/
+scripts/ingestion/triage_reports/
+scripts/ingestion/mineru_experiments/
+scripts/ingestion/preview_screenshots/
+scripts/ingestion/*.pdf
+scripts/ingestion/*_output*.json
+scripts/ingestion/benchmark_results.json
+scripts/ingestion/batch_v1_v2_comparison.json
+scripts/ingestion/reconciliation_table.json
+scripts/ingestion/v1_reconstructed_expressions.json
+scripts/ingestion/test_import_plan.json
+
+

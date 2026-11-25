@@ -1,8 +1,31 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-geist-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --surface-card: #FFFFFF;
+  --surface-elevated: #F1F5F9;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --border-subtle: #E2E8F0;
+  --accent-primary: #4F46E5;
+  --accent-secondary: #7C3AED;
+}
+
+html.dark {
+  --background: #0B1120;
+  --foreground: #F1F5F9;
+  --surface-card: #151F32;
+  --surface-elevated: #1E293B;
+  --text-primary: #F1F5F9;
+  --text-secondary: #A7B3C7;
+  --border-subtle: #1E293B;
+  --accent-primary: #6366F1;
+  --accent-secondary: #8B5CF6;
 }
 
 @theme inline {
@@ -12,15 +35,21 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Ensure KaTeX and mathematical notation remain crisp & high-contrast in both Light and Dark themes */
+.katex,
+.katex-display,
+.math-expression {
+  color: var(--text-primary);
 }
